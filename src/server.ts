@@ -12,7 +12,7 @@ import { modelRoutes } from "./routes/models/route"
 
 export const server = new Hono()
 
-const envFilePath = "/data/.env"
+const envFilePath = "/root/.env"
 config()
 const API_KEY = process.env.API_KEY || randomBytes(20).toString("hex")
 if (!process.env.API_KEY) {
