@@ -5,7 +5,6 @@ import { cors } from "hono/cors"
 import { logger } from "hono/logger"
 import { randomBytes } from "node:crypto"
 import { writeFileSync } from "node:fs"
-import { join } from "node:path"
 
 import { completionRoutes } from "./routes/chat-completions/route"
 import { embeddingRoutes } from "./routes/embeddings/route"
@@ -13,7 +12,7 @@ import { modelRoutes } from "./routes/models/route"
 
 export const server = new Hono()
 
-const envFilePath = join(process.cwd(), ".env")
+const envFilePath = "/data/.env"
 config()
 const API_KEY = process.env.API_KEY || randomBytes(20).toString("hex")
 if (!process.env.API_KEY) {
