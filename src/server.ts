@@ -13,7 +13,7 @@ import { modelRoutes } from "./routes/models/route"
 export const server = new Hono()
 
 const envFilePath = "/root/.env"
-config()
+config({ path: [envFilePath] })
 const API_KEY = process.env.API_KEY || randomBytes(20).toString("hex")
 if (!process.env.API_KEY) {
   writeFileSync(envFilePath, `API_KEY=${API_KEY}\n`)
